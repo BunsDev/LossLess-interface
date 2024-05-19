@@ -11,7 +11,7 @@ import ConnectButton from "@/hooks/useConnection"
 import { useWeb3ModalAccount } from "@web3modal/ethers/react"
 import { useRouter } from "next/navigation"
 
-export const gluten = Gluten({ subsets: ["latin"] });
+ const gluten = Gluten({ subsets: ["latin"] });
 
 
 export default function Component() {
@@ -108,7 +108,7 @@ export default function Component() {
               </Card>
               <Card>
                 <CardHeader>
-                  <img
+                  <Image
                     alt="Auction Item"
                     className="mx-auto aspect-[4/3] overflow-hidden rounded-xl object-cover object-center sm:w-full"
                     height="250"
@@ -128,7 +128,7 @@ export default function Component() {
               </Card>
               <Card>
                 <CardHeader>
-                  <img
+                  <Image
                     alt="Auction Item"
                     className="mx-auto aspect-[4/3] overflow-hidden rounded-xl object-cover object-center sm:w-full"
                     height="250"
@@ -148,7 +148,7 @@ export default function Component() {
               </Card>
               <Card>
                 <CardHeader>
-                  <img
+                  <Image
                     alt="Auction Item"
                     className="mx-auto aspect-[4/3] overflow-hidden rounded-xl object-cover object-center sm:w-full"
                     height="250"
@@ -168,7 +168,7 @@ export default function Component() {
               </Card>
               <Card>
                 <CardHeader>
-                  <img
+                  <Image
                     alt="Auction Item"
                     className="mx-auto aspect-[4/3] overflow-hidden rounded-xl object-cover object-center sm:w-full"
                     height="250"
@@ -188,7 +188,7 @@ export default function Component() {
               </Card>
               <Card>
                 <CardHeader>
-                  <img
+                  <Image
                     alt="Auction Item"
                     className="mx-auto aspect-[4/3] overflow-hidden rounded-xl object-cover object-center sm:w-full"
                     height="250"

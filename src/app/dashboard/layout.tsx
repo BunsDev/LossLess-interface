@@ -7,7 +7,7 @@ import ConnectButton from "@/hooks/useConnection"
 import { useWeb3ModalAccount } from "@web3modal/ethers/react"
 import { useRouter } from "next/navigation"
 
-export const gluten = Gluten({ subsets: ["latin"] });
+const gluten = Gluten({ subsets: ["latin"] });
 
 
 export default function Component({ children }: { children: React.ReactNode }) {

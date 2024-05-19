@@ -3,6 +3,7 @@ import { Checkbox } from '@/components/ui/checkbox'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { Label } from '@/components/ui/label'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
+import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
@@ -92,7 +93,7 @@ const page = (props: Props) => {
     </div>
     <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       <div className="rounded-lg border border-gray-200 bg-[#C9E4CA] shadow-sm dark:border-gray-800 dark:bg-gray-950">
-        <img
+        <Image
           alt="Auction Item"
           className="h-60 w-full rounded-t-lg object-cover"
           height={300}
@@ -114,7 +115,7 @@ const page = (props: Props) => {
         </div>
       </div>
       <div className="rounded-lg border border-gray-200 bg-[#C9E4CA] shadow-sm dark:border-gray-800 dark:bg-gray-950">
-        <img
+        <Image
           alt="Auction Item"
           className="h-60 w-full rounded-t-lg object-cover"
           height={300}
@@ -136,7 +137,7 @@ const page = (props: Props) => {
         </div>
       </div>
       <div className="rounded-lg border border-gray-200 bg-[#C9E4CA] shadow-sm dark:border-gray-800 dark:bg-gray-950">
-        <img
+        <Image
           alt="Auction Item"
           className="h-60 w-full rounded-t-lg object-cover"
           height={300}
@@ -158,7 +159,7 @@ const page = (props: Props) => {
         </div>
       </div>
       <div className="rounded-lg border border-gray-200 bg-[#C9E4CA] shadow-sm dark:border-gray-800 dark:bg-gray-950">
-        <img
+        <Image
           alt="Auction Item"
           className="h-60 w-full rounded-t-lg object-cover"
           height={300}
@@ -180,7 +181,7 @@ const page = (props: Props) => {
         </div>
       </div>
       <div className="rounded-lg border border-gray-200 bg-[#C9E4CA] shadow-sm dark:border-gray-800 dark:bg-gray-950">
-        <img
+        <Image
           alt="Auction Item"
           className="h-60 w-full rounded-t-lg object-cover"
           height={300}
@@ -202,7 +203,7 @@ const page = (props: Props) => {
         </div>
       </div>
       <div className="rounded-lg border border-gray-200 bg-[#C9E4CA] shadow-sm dark:border-gray-800 dark:bg-gray-950">
-        <img
+        <Image
           alt="Auction Item"
           className="h-60 w-full rounded-t-lg object-cover"
           height={300}
@@ -224,7 +225,7 @@ const page = (props: Props) => {
         </div>
       </div>
       <div className="rounded-lg border border-gray-200 bg-[#C9E4CA] shadow-sm dark:border-gray-800 dark:bg-gray-950">
-        <img
+        <Image
           alt="Auction Item"
           className="h-60 w-full rounded-t-lg object-cover"
           height={300}
@@ -246,7 +247,7 @@ const page = (props: Props) => {
         </div>
       </div>
       <div className="rounded-lg border border-gray-200 bg-[#C9E4CA] shadow-sm dark:border-gray-800 dark:bg-gray-950">
-        <img
+        <Image
           alt="Auction Item"
           className="h-60 w-full rounded-t-lg object-cover"
           height={300}

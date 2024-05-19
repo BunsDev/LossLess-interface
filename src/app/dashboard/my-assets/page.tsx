@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuLabel, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { Input } from '@/components/ui/input'
+import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
@@ -13,7 +14,7 @@ const page = (props: Props) => {
       <div className="space-y-2">
         <h1 className="text-2xl md:text-5xl font-bold text-[#C9E4CA]">Your Auction Assets</h1>
         <p className="text-[#C9E4CA] dark:text-gray-400 text-lg">
-          View and manage all the assets you've purchased at auctions.
+          View and manage all the assets you&apos;ve purchased at auctions.
         </p>
       </div>
       <div className="flex items-center gap-4">
@@ -52,7 +53,7 @@ const page = (props: Props) => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         <div className="bg-white dark:bg-gray-950 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
           <Link className="block" href="/dashboard/my-assets/1">
-            <img
+            <Image
               alt="Asset Image"
               className="w-full h-48 object-cover"
               height={300}
@@ -76,7 +77,7 @@ const page = (props: Props) => {
         </div>
         <div className="bg-white dark:bg-gray-950 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
           <Link className="block" href="/dashboard/my-assets/1">
-            <img
+            <Image
               alt="Asset Image"
               className="w-full h-48 object-cover"
               height={300}
@@ -100,7 +101,7 @@ const page = (props: Props) => {
         </div>
         <div className="bg-white dark:bg-gray-950 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
           <Link className="block" href="/dashboard/my-assets/1">
-            <img
+            <Image
               alt="Asset Image"
               className="w-full h-48 object-cover"
               height={300}
@@ -124,7 +125,7 @@ const page = (props: Props) => {
         </div>
         <div className="bg-white dark:bg-gray-950 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
           <Link className="block" href="/dashboard/my-assets/1">
-            <img
+            <Image
               alt="Asset Image"
               className="w-full h-48 object-cover"
               height={300}
@@ -148,7 +149,7 @@ const page = (props: Props) => {
         </div>
         <div className="bg-white dark:bg-gray-950 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
           <Link className="block" href="/dashboard/my-assets/1">
-            <img
+            <Image
               alt="Asset Image"
               className="w-full h-48 object-cover"
               height={300}
@@ -172,7 +173,7 @@ const page = (props: Props) => {
         </div>
         <div className="bg-white dark:bg-gray-950 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
           <Link className="block" href="/dashboard/my-assets/1">
-            <img
+            <Image
               alt="Asset Image"
               className="w-full h-48 object-cover"
               height={300}

@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button'
 import { Label } from '@/components/ui/label'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Textarea } from '@/components/ui/textarea'
+import Image from 'next/image'
 import React from 'react'
 
 type Props = {}
@@ -10,7 +11,7 @@ const page = (props: Props) => {
   return (
     <div className="grid md:grid-cols-2 gap-6 lg:gap-12 items-start max-w-6xl px-4 mx-auto py-6">
     <div className="grid gap-4">
-      <img
+      <Image
         alt="Auction Item"
         className="aspect-[4/3] object-cover border border-gray-200 w-full rounded-lg overflow-hidden dark:border-gray-800"
         height={400}
@@ -54,7 +55,7 @@ const page = (props: Props) => {
             </div>
             <div className='text-[#C9E4CA]'>
               <span className="text-[#C9E4CA]">Dimensions:  </span>
-              12" x 8" x 5"{"\n                        "}
+              12&quot; x 8&quot; x 5&quot;{"\n                        "}
             </div>
             <div className='text-[#C9E4CA]'>
               <span className="text-[#C9E4CA]">Weight:  </span>
