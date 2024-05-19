@@ -64,7 +64,7 @@ const page = (props: Props) => {
             <TableBody>
               <TableRow>
                 <TableCell className="font-medium">
-                  <Link className="hover:underline" href="#">
+                  <Link className="hover:underline" href="/dashboard/explore-auctions/1">
                     Vintage Typewriter
                   </Link>
                 </TableCell>
@@ -74,7 +74,7 @@ const page = (props: Props) => {
               </TableRow>
               <TableRow>
                 <TableCell className="font-medium">
-                  <Link className="hover:underline" href="#">
+                  <Link className="hover:underline" href="/dashboard/explore-auctions/1">
                     Antique Pocket Watch
                   </Link>
                 </TableCell>
@@ -84,7 +84,7 @@ const page = (props: Props) => {
               </TableRow>
               <TableRow>
                 <TableCell className="font-medium">
-                  <Link className="hover:underline" href="#">
+                  <Link className="hover:underline" href="/dashboard/explore-auctions/1">
                     Rare Comic Book
                   </Link>
                 </TableCell>
@@ -94,7 +94,7 @@ const page = (props: Props) => {
               </TableRow>
               <TableRow>
                 <TableCell className="font-medium">
-                  <Link className="hover:underline" href="#">
+                  <Link className="hover:underline" href="/dashboard/explore-auctions/1">
                     Classic Car
                   </Link>
                 </TableCell>
@@ -104,7 +104,7 @@ const page = (props: Props) => {
               </TableRow>
               <TableRow>
                 <TableCell className="font-medium">
-                  <Link className="hover:underline" href="#">
+                  <Link className="hover:underline" href="/dashboard/explore-auctions/1">
                     Vintage Vinyl Records
                   </Link>
                 </TableCell>

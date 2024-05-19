@@ -3,6 +3,7 @@ import { Checkbox } from '@/components/ui/checkbox'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { Label } from '@/components/ui/label'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
+import Link from 'next/link'
 import React from 'react'
 
 type Props = {}
@@ -107,9 +108,9 @@ const page = (props: Props) => {
           <p className="mt-2 text-gray-500 dark:text-gray-400">
             Fully restored 1950s typewriter in excellent condition.
           </p>
-          <Button className="mt-4" variant="link">
+          <Link href={"/dashboard/explore-auctions/1"} className="mt-4 text-sm hover:underline" >
             View Auction
-          </Button>
+          </Link>
         </div>
       </div>
       <div className="rounded-lg border border-gray-200 bg-[#C9E4CA] shadow-sm dark:border-gray-800 dark:bg-gray-950">
@@ -129,9 +130,9 @@ const page = (props: Props) => {
           <p className="mt-2 text-gray-500 dark:text-gray-400">
             Beautifully crafted 19th-century pocket watch in working condition.
           </p>
-          <Button className="mt-4" variant="link">
+          <Link href={"/dashboard/explore-auctions/1"} className="mt-4 text-sm hover:underline" >
             View Auction
-          </Button>
+          </Link>
         </div>
       </div>
       <div className="rounded-lg border border-gray-200 bg-[#C9E4CA] shadow-sm dark:border-gray-800 dark:bg-gray-950">
@@ -151,9 +152,9 @@ const page = (props: Props) => {
           <p className="mt-2 text-gray-500 dark:text-gray-400">
             Fully restored 1960s record player with excellent sound quality.
           </p>
-          <Button className="mt-4" variant="link">
+          <Link href={"/dashboard/explore-auctions/1"} className="mt-4 text-sm hover:underline" >
             View Auction
-          </Button>
+          </Link>
         </div>
       </div>
       <div className="rounded-lg border border-gray-200 bg-[#C9E4CA] shadow-sm dark:border-gray-800 dark:bg-gray-950">
@@ -173,9 +174,9 @@ const page = (props: Props) => {
           <p className="mt-2 text-gray-500 dark:text-gray-400">
             Beautifully crafted 18th-century vase in excellent condition.
           </p>
-          <Button className="mt-4" variant="link">
+          <Link href={"/dashboard/explore-auctions/1"} className="mt-4 text-sm hover:underline" >
             View Auction
-          </Button>
+          </Link>
         </div>
       </div>
       <div className="rounded-lg border border-gray-200 bg-[#C9E4CA] shadow-sm dark:border-gray-800 dark:bg-gray-950">
@@ -195,9 +196,9 @@ const page = (props: Props) => {
           <p className="mt-2 text-gray-500 dark:text-gray-400">
             Fully functional 1970s camera in excellent condition.
           </p>
-          <Button className="mt-4" variant="link">
+          <Link href={"/dashboard/explore-auctions/1"} className="mt-4 text-sm hover:underline" >
             View Auction
-          </Button>
+          </Link>
         </div>
       </div>
       <div className="rounded-lg border border-gray-200 bg-[#C9E4CA] shadow-sm dark:border-gray-800 dark:bg-gray-950">
@@ -217,9 +218,9 @@ const page = (props: Props) => {
           <p className="mt-2 text-gray-500 dark:text-gray-400">
             Beautifully crafted 19th-century jewelry box in excellent condition.
           </p>
-          <Button className="mt-4" variant="link">
+          <Link href={"/dashboard/explore-auctions/1"} className="mt-4 text-sm hover:underline" >
             View Auction
-          </Button>
+          </Link>
         </div>
       </div>
       <div className="rounded-lg border border-gray-200 bg-[#C9E4CA] shadow-sm dark:border-gray-800 dark:bg-gray-950">
@@ -239,9 +240,9 @@ const page = (props: Props) => {
           <p className="mt-2 text-gray-500 dark:text-gray-400">
             Fully restored 1950s typewriter in excellent condition.
           </p>
-          <Button className="mt-4" variant="link">
+          <Link href={"/dashboard/explore-auctions/1"} className="mt-4 text-sm hover:underline" >
             View Auction
-          </Button>
+          </Link>
         </div>
       </div>
       <div className="rounded-lg border border-gray-200 bg-[#C9E4CA] shadow-sm dark:border-gray-800 dark:bg-gray-950">
@@ -261,9 +262,9 @@ const page = (props: Props) => {
           <p className="mt-2 text-gray-500 dark:text-gray-400">
             Beautifully crafted 19th-century pocket watch in working condition.
           </p>
-          <Button className="mt-4" variant="link">
+          <Link href={"/dashboard/explore-auctions/1"} className="mt-4 text-sm hover:underline" >
             View Auction
-          </Button>
+          </Link>
         </div>
       </div>
     </div>

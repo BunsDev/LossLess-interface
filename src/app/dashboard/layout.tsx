@@ -31,41 +31,42 @@ export default function Component({ children }: { children: React.ReactNode }) {
           </div>
           <div className="flex-1 overflow-auto py-2">
             <nav className="grid items-start px-4 text-sm font-medium">
+            <Link
+                className="flex items-center text-[#C9E4CA] gap-3 rounded-lg hover:bg-gray-100 px-3 py-2  transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+                href="/dashboard"
+              >
+                <LayoutGridIcon className="h-4 w-4" />
+                Dashboard
+              </Link>
               <Link
                 className="flex items-center text-[#C9E4CA] gap-3 rounded-lg hover:bg-gray-100 px-3 py-2  transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-                href="#"
+                href="/dashboard/explore-auctions"
               >
                 <CompassIcon className="h-4 w-4" />
                 Explore Auctions
               </Link>
-              <Link
+              {/* <Link
                 className="flex items-center text-[#C9E4CA] gap-3 rounded-lg hover:bg-gray-100 px-3 py-2  transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-                href="#"
+                href="/dashboard/my-auctions"
               >
                 <BriefcaseIcon className="h-4 w-4" />
                 My Auctions
-              </Link>
+              </Link> */}
               <Link
                 className="flex items-center text-[#C9E4CA] gap-3 rounded-lg hover:bg-gray-100 px-3 py-2  transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-                href="#"
+                href="/dashboard/my-assets"
               >
                 <BoxIcon className="h-4 w-4" />
                 My Assets
               </Link>
               <Link
                 className="flex items-center text-[#C9E4CA] gap-3 rounded-lg hover:bg-gray-100 px-3 py-2  transition-all hover:text-gray-900 dark:bg-gray-800 dark:text-gray-50 dark:hover:text-gray-50"
-                href="#"
+                href="/dashboard/create-auction"
               >
                 <PlusIcon className="h-4 w-4" />
                 Create Auction
               </Link>
-              <Link
-                className="flex items-center text-[#C9E4CA] gap-3 rounded-lg hover:bg-gray-100 px-3 py-2  transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-                href="#"
-              >
-                <LayoutGridIcon className="h-4 w-4" />
-                Dashboard
-              </Link>
+              
             </nav>
           </div>
         </div>

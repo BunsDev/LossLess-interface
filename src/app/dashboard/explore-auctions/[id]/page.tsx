@@ -91,7 +91,7 @@ const page = (props: Props) => {
                             </Table>
                         </div>
                         <div>
-                            <h2 className="text-lg font-bold">Shipping Details</h2>
+                            <h2 className="text-lg font-bold text-[#C9E4CA]">Shipping Details</h2>
                             <div className="grid gap-2">
                                 <div className="flex items-center justify-between">
                                     <span className="text-[#C9E4CA]">Estimated Delivery:</span>

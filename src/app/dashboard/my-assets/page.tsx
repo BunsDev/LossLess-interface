@@ -51,7 +51,7 @@ const page = (props: Props) => {
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         <div className="bg-white dark:bg-gray-950 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-          <Link className="block" href="#">
+          <Link className="block" href="/dashboard/my-assets/1">
             <img
               alt="Asset Image"
               className="w-full h-48 object-cover"
@@ -64,9 +64,9 @@ const page = (props: Props) => {
               width={400}
             />
           </Link>
-          <div className="p-4">
-            <Link className="block" href="#">
-              <h3 className="text-lg font-semibold truncate">Vintage Typewriter</h3>
+          <div className="bg-[#C9E4CA] p-4">
+            <Link className="block" href="/dashboard/my-assets/1">
+              <h3 className="text-lg font-semibold truncate hover:underline">Vintage Typewriter</h3>
             </Link>
             <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
               <span>Auction: 05/18/2024</span>
@@ -75,7 +75,7 @@ const page = (props: Props) => {
           </div>
         </div>
         <div className="bg-white dark:bg-gray-950 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-          <Link className="block" href="#">
+          <Link className="block" href="/dashboard/my-assets/1">
             <img
               alt="Asset Image"
               className="w-full h-48 object-cover"
@@ -88,9 +88,9 @@ const page = (props: Props) => {
               width={400}
             />
           </Link>
-          <div className="p-4">
-            <Link className="block" href="#">
-              <h3 className="text-lg font-semibold truncate">Antique Pocket Watch</h3>
+          <div className="bg-[#C9E4CA] p-4">
+            <Link className="block" href="/dashboard/my-assets/1">
+              <h3 className="text-lg font-semibold truncate hover:underline">Antique Pocket Watch</h3>
             </Link>
             <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
               <span>Auction: 04/22/2024</span>
@@ -99,7 +99,7 @@ const page = (props: Props) => {
           </div>
         </div>
         <div className="bg-white dark:bg-gray-950 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-          <Link className="block" href="#">
+          <Link className="block" href="/dashboard/my-assets/1">
             <img
               alt="Asset Image"
               className="w-full h-48 object-cover"
@@ -112,9 +112,9 @@ const page = (props: Props) => {
               width={400}
             />
           </Link>
-          <div className="p-4">
-            <Link className="block" href="#">
-              <h3 className="text-lg font-semibold truncate">Vintage Leather Suitcase</h3>
+          <div className="bg-[#C9E4CA] p-4">
+            <Link className="block" href="/dashboard/my-assets/1">
+              <h3 className="text-lg font-semibold truncate hover:underline">Vintage Leather Suitcase</h3>
             </Link>
             <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
               <span>Auction: 03/15/2024</span>
@@ -123,7 +123,7 @@ const page = (props: Props) => {
           </div>
         </div>
         <div className="bg-white dark:bg-gray-950 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-          <Link className="block" href="#">
+          <Link className="block" href="/dashboard/my-assets/1">
             <img
               alt="Asset Image"
               className="w-full h-48 object-cover"
@@ -136,9 +136,9 @@ const page = (props: Props) => {
               width={400}
             />
           </Link>
-          <div className="p-4">
-            <Link className="block" href="#">
-              <h3 className="text-lg font-semibold truncate">Antique Brass Telescope</h3>
+          <div className="bg-[#C9E4CA] p-4">
+            <Link className="block" href="/dashboard/my-assets/1">
+              <h3 className="text-lg font-semibold truncate hover:underline">Antique Brass Telescope</h3>
             </Link>
             <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
               <span>Auction: 02/28/2024</span>
@@ -147,7 +147,7 @@ const page = (props: Props) => {
           </div>
         </div>
         <div className="bg-white dark:bg-gray-950 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-          <Link className="block" href="#">
+          <Link className="block" href="/dashboard/my-assets/1">
             <img
               alt="Asset Image"
               className="w-full h-48 object-cover"
@@ -160,9 +160,9 @@ const page = (props: Props) => {
               width={400}
             />
           </Link>
-          <div className="p-4">
-            <Link className="block" href="#">
-              <h3 className="text-lg font-semibold truncate">Vintage Gramophone</h3>
+          <div className="bg-[#C9E4CA] p-4">
+            <Link className="block" href="/dashboard/my-assets/1">
+              <h3 className="text-lg font-semibold truncate hover:underline">Vintage Gramophone</h3>
             </Link>
             <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
               <span>Auction: 01/12/2024</span>
@@ -171,7 +171,7 @@ const page = (props: Props) => {
           </div>
         </div>
         <div className="bg-white dark:bg-gray-950 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-          <Link className="block" href="#">
+          <Link className="block" href="/dashboard/my-assets/1">
             <img
               alt="Asset Image"
               className="w-full h-48 object-cover"
@@ -184,9 +184,9 @@ const page = (props: Props) => {
               width={400}
             />
           </Link>
-          <div className="p-4">
-            <Link className="block" href="#">
-              <h3 className="text-lg font-semibold truncate">Antique Brass Compass</h3>
+          <div className="bg-[#C9E4CA] p-4">
+            <Link className="block" href="/dashboard/my-assets/1">
+              <h3 className="text-lg font-semibold truncate hover:underline">Antique Brass Compass</h3>
             </Link>
             <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
               <span>Auction: 12/05/2023</span>
