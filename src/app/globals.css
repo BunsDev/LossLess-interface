@@ -92,3 +92,12 @@
     filter: invert(1);
   }
   
+  .overflow-y-scroll::-webkit-scrollbar-thumb {
+    background-color: #eee; 
+    border-radius: 1px; 
+  }
+  .overflow-x-scroll::-webkit-scrollbar-thumb {
+    background-color: #eee; 
+    border-radius: 1px; 
+    color: transparent;
+  }
