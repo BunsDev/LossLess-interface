@@ -7,7 +7,7 @@ import React from 'react'
 
 type Props = {}
 
-const page = (props: Props) => {
+const Page = (props: Props) => {
   return (
     <main className="w-full max-w-6xl mx-auto px-4 md:px-4 py-8 md:py-6">
     <div className="grid gap-6 md:gap-8">
@@ -201,7 +201,7 @@ const page = (props: Props) => {
   )
 }
 
-export default page
+export default Page
 
 function FilterIcon(props: React.SVGProps<SVGSVGElement>) {
   return (

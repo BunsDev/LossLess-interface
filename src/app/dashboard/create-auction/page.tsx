@@ -14,10 +14,16 @@ import axios from 'axios';
 
 type Props = {}
 
-const page = (props: Props) => {
-  const { address } = useWeb3ModalAccount();
-  const [nftsArray, setNftsArray] = useState([]);
+type Nft = {
+  image_url: string;
+  name: string;
+  description: string;
+};
 
+const Page = (props: Props) => {
+  const { address } = useWeb3ModalAccount();
+  const [nftsArray, setNftsArray] = useState<Nft[]>([]);
+  
   useEffect(() => {
     const fetchUrl = process.env.NEXT_PUBLIC_OPENSEA_BASE_URL;
     axios.get(`${fetchUrl}/${address}/nfts?limit=200`)
@@ -151,4 +157,4 @@ const page = (props: Props) => {
   )
 }
 
-export default page
+export default Page

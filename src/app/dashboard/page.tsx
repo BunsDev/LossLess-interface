@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 type Props = {}
 
-const page = (props: Props) => {
+const Page = (props: Props) => {
   return (
     <>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -120,7 +120,7 @@ const page = (props: Props) => {
   )
 }
 
-export default page
+export default Page
 
 function CalendarIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
