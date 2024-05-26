@@ -45,7 +45,7 @@ As we move on from the hackathon we plan to add more functionalities like:
 - View Past Auctions: Users can access a record of past auctions, allowing them to track and analyze market trends.
 
 ## Smart Contract
-You can find the LoosLess Contract - [HERE]("")
+You can find the LoosLess Contract - [HERE](https://github.com/MubarakOke/losslessAunctionContract)
 
 ## Acknowledgments
 
