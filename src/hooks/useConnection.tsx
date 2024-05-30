@@ -10,14 +10,12 @@ export default function ConnectButton() {
   useEffect(() => {
     setIsClient(true)
   }, [])
- 
- 
+
   return (
     <>
      {isClient && isConnected ? (
         <w3m-button />
       ) : (
-      
         <Button
           onClick={() => open()}
           variant={"outline"}

@@ -1,27 +1,22 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { readOnlyProvider } from "../constants/providers";
 import { getAuctionContract } from "../constants/contracts";
 
-export const useGetAuctionBidder = (auctionId: Number) =>{
-    const [data, setData] = useState<{ loading: boolean, data: any }>({loading: true, data:{}})
+export const useGetAuctionBidder = (auctionId: Number) => {
+    const [data, setData] = useState<{ loading: boolean, data: any }>({ loading: true, data: [] });
 
-    useEffect(()=>{
-        let auctionBidder;
-        (async () => {
+    (() => {
+        const contract = getAuctionContract(readOnlyProvider)
+        contract.getAunctionBidder(auctionId).then((res) => {
 
-        try {
-            const contract = getAuctionContract(readOnlyProvider)
-            const user = await contract.getAunctionBidder(auctionId)
-            console.log(user)
-            auctionBidder = {
+            setData({
+                loading: false,
+                data: res
+            });
+        }).catch((err) => {
+            console.error("error fetching bidders", err)
+        });
+    })()
 
-            }
-        } catch (error) {
-            console.error(error);
-        } finally{
-            setData({loading: false, data: auctionBidder})
-        }
-    })();
-    }, [])
-    return data 
+    return data
 }

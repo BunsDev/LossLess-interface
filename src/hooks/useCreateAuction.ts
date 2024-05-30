@@ -8,11 +8,12 @@ import {
 } from "@web3modal/ethers/react";
 
 
-export const useCreateAuction = (startingTime: Number, endingTime: Number, startingBid: Number, nftTokenId: string, nftContractAddress: string, imageURI: string) =>{
-    const { chainId, address } = useWeb3ModalAccount();
+export const useCreateAuction = () =>{
+    const { chainId } = useWeb3ModalAccount();
     const { walletProvider } = useWeb3ModalProvider();
 
-    return useCallback(async()=>{
+    return useCallback(async(startingTime: Number, endingTime: Number, startingBid: Number, nftTokenId: string, nftContractAddress: string, imageURI: string)=>{
+
         if(!isSupportedChain(chainId)) return console.error("Wrong network");
 
         const readWriteProvider = getProvider(walletProvider);
@@ -22,12 +23,18 @@ export const useCreateAuction = (startingTime: Number, endingTime: Number, start
         const contract = getAuctionContract(signer);
 
         try {
+
             const transaction = await contract.createAuction(startingTime, endingTime, startingBid, nftTokenId, nftContractAddress, imageURI);
             
             const receipt = await transaction.wait();
+
             return receipt
+
         } catch (error) {
+
             console.error(error)
+
         }
+        
     }, [chainId, walletProvider]);
 }

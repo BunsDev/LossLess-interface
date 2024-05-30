@@ -9,10 +9,12 @@ import {
 
 
 export const useCancelAuction = (auctionId: Number) =>{
+    
     const { chainId, address } = useWeb3ModalAccount();
     const { walletProvider } = useWeb3ModalProvider();
 
     return useCallback(async()=>{
+
         if(!isSupportedChain(chainId)) return console.error("Wrong network");
 
         const readWriteProvider = getProvider(walletProvider);

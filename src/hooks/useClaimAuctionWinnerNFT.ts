@@ -9,6 +9,7 @@ import {
 
 
 export const useClaimAuctionWinnerNFT = (bid: Number, auctionId: Number) =>{
+
     const { chainId, address } = useWeb3ModalAccount();
     const { walletProvider } = useWeb3ModalProvider();
 
@@ -22,13 +23,18 @@ export const useClaimAuctionWinnerNFT = (bid: Number, auctionId: Number) =>{
         const contract = getAuctionContract(signer);
 
         try {
+
             const transaction = await contract.claimAuctionWinnerNFT(auctionId);
             
             const receipt = await transaction.wait();
             
             return receipt
+
         } catch (error) {
+
             console.error(error)
+
         }
+        
     }, [chainId, walletProvider]);
 }

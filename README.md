@@ -49,6 +49,7 @@ You can find the LoosLess Contract - [HERE](https://github.com/MubarakOke/lossle
 
 ## Acknowledgments
 
+- Web3Bridge Team
 - Avalanche, Chainlink, and Moonbeam Team.
 
 Hacked By The LossLess Team 

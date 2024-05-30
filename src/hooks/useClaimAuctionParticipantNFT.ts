@@ -13,6 +13,7 @@ export const useClaimAuctionParticipantNFT = (auctionId: Number) =>{
     const { walletProvider } = useWeb3ModalProvider();
 
     return useCallback(async()=>{
+
         if(!isSupportedChain(chainId)) return console.error("Wrong network");
 
         const readWriteProvider = getProvider(walletProvider);

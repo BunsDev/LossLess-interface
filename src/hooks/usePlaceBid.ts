@@ -9,10 +9,12 @@ import {
 
 
 export const usePlaceBid = (bid: Number, auctionId: Number) =>{
+
     const { chainId, address } = useWeb3ModalAccount();
     const { walletProvider } = useWeb3ModalProvider();
 
     return useCallback(async()=>{
+        
         if(!isSupportedChain(chainId)) return console.error("Wrong network");
 
         const readWriteProvider = getProvider(walletProvider);
@@ -22,13 +24,18 @@ export const usePlaceBid = (bid: Number, auctionId: Number) =>{
         const contract = getAuctionContract(signer);
 
         try {
+
             const transaction = await contract.bid( auctionId, {value: bid});
             
             const receipt = await transaction.wait();
             
             return receipt
+
         } catch (error) {
+
             console.error(error)
+
         }
+        
     }, [chainId, walletProvider]);
 }

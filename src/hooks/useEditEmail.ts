@@ -13,6 +13,7 @@ export const useEditEmail = (email: string) =>{
     const { walletProvider } = useWeb3ModalProvider();
 
     return useCallback(async()=>{
+
         if(!isSupportedChain(chainId)) return console.error("Wrong network");
 
         const readWriteProvider = getProvider(walletProvider);
@@ -22,6 +23,7 @@ export const useEditEmail = (email: string) =>{
         const contract = getAuthorizationContract(signer);
 
         try {
+
             const transaction = await contract.editEmail(email);
             
             const receipt = await transaction.wait();
@@ -29,7 +31,10 @@ export const useEditEmail = (email: string) =>{
             return receipt
             
         } catch (error) {
+
             console.error(error)
+
         }
+        
     }, [chainId, walletProvider]);
 }

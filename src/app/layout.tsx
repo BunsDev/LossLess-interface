@@ -2,6 +2,8 @@ import { Cormorant_Garamond } from 'next/font/google'
 import { Caudex } from 'next/font/google'
 import './globals.css'
 import { Web3Modal } from '@/connection'
+import { Toaster } from 'react-hot-toast';
+
 
 const cormorant_garamond = Cormorant_Garamond({
   weight: ["300", "400", "500", "600", "700"],
@@ -29,6 +31,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <Web3Modal>
         {children}
         </Web3Modal>
+        <Toaster />
       </body>
     </html>
   )
