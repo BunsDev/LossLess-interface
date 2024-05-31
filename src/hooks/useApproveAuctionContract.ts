@@ -1,18 +1,19 @@
 import { useCallback } from "react";
 import { isSupportedChain } from "../utils";
 import { getProvider } from "../constants/providers";
-import { getAuctionContract } from "../constants/contracts";
 import {
   useWeb3ModalAccount,
   useWeb3ModalProvider,
 } from "@web3modal/ethers/react";
 import toast from "react-hot-toast";
+import { getAuctionNFTContract } from "@/constants/contracts";
 
-export const useCreateAuction = () =>{
+export const useApproveAuctionContract = () =>{
+    const auctionContractAddress = process.env.NEXT_PUBLIC_AUCTION_CONTRACT_ADDRESS
     const { chainId } = useWeb3ModalAccount();
     const { walletProvider } = useWeb3ModalProvider();
 
-    return useCallback(async(startingTime: Number, endingTime: Number, startingBid: Number, nftTokenId: Number, nftContractAddress: string, imageURI: string)=>{
+    return useCallback(async(contractAddress: string, tokenId: number)=>{
 
         if(!isSupportedChain(chainId)) return console.error("Wrong network");
 
@@ -20,19 +21,19 @@ export const useCreateAuction = () =>{
 
         const signer = readWriteProvider ? await readWriteProvider.getSigner() : null;
 
-        const contract = getAuctionContract(signer);
+        const contract = getAuctionNFTContract(signer,contractAddress );
 
-        const loadingToast1 = toast.loading('Creating auction');
+        const loadingToast1 = toast.loading('Approving Auction');
 
         try {
 
-            const transaction = await contract.createAuction(startingTime, endingTime, startingBid, nftTokenId, nftContractAddress, imageURI);
+            const transaction = await contract.approve(auctionContractAddress, tokenId);
             
             const receipt = await transaction.wait();
 
             toast.remove(loadingToast1)
 
-            toast.success(`Auction Creation Successful`)
+            toast.success(`Approval Successful`)
 
             return receipt
 

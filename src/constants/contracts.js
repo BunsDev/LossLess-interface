@@ -1,6 +1,7 @@
 import { ethers } from "ethers";
 import auctionABI from "./auctionContractABI.json"
 import authorizationABI from "./authorizationABI.json"
+import auctionNFTABI from "./auctionNFTABI.json"
 
 export const getAuctionContract = (providerOrSigner)=>
     new ethers.Contract(
@@ -17,3 +18,9 @@ export const getAuthorizationContract = (providerOrSigner) =>
         providerOrSigner
     )
 
+export const getAuctionNFTContract = (providerOrSigner, contractAddress) =>
+    new ethers.Contract(
+        contractAddress,
+        auctionNFTABI,
+        providerOrSigner
+    )

@@ -123,7 +123,7 @@ export default function Component() {
                   <CardContent>
                     <div className="space-y-1">
                       <h3 className="text-lg font-bold">Vintage Typewriter</h3>
-                      <p className="text-gray-500 dark:text-gray-400">Current Bid: $250</p>
+                      <p className="text-gray-500 dark:text-gray-400">Current Bid: 0.01 Avax</p>
                     </div>
                   </CardContent>
                   <CardFooter>
@@ -143,7 +143,7 @@ export default function Component() {
                   <CardContent>
                     <div className="space-y-1">
                       <h3 className="text-lg font-bold">Antique Vase</h3>
-                      <p className="text-gray-500 dark:text-gray-400">Current Bid: $500</p>
+                      <p className="text-gray-500 dark:text-gray-400">Current Bid: 0.01 Avax</p>
                     </div>
                   </CardContent>
                   <CardFooter>
@@ -163,7 +163,7 @@ export default function Component() {
                   <CardContent>
                     <div className="space-y-1">
                       <h3 className="text-lg font-bold">Rare Coin Collection</h3>
-                      <p className="text-gray-500 dark:text-gray-400">Current Bid: $1,000</p>
+                      <p className="text-gray-500 dark:text-gray-400">Current Bid: 0.01 Avax00</p>
                     </div>
                   </CardContent>
                   <CardFooter>
@@ -183,7 +183,7 @@ export default function Component() {
                   <CardContent>
                     <div className="space-y-1">
                       <h3 className="text-lg font-bold">Vintage Jewelry Box</h3>
-                      <p className="text-gray-500 dark:text-gray-400">Current Bid: $300</p>
+                      <p className="text-gray-500 dark:text-gray-400">Current Bid: 0.01 Avax</p>
                     </div>
                   </CardContent>
                   <CardFooter>
@@ -203,7 +203,7 @@ export default function Component() {
                   <CardContent>
                     <div className="space-y-1">
                       <h3 className="text-lg font-bold">Antique Pocket Watch</h3>
-                      <p className="text-gray-500 dark:text-gray-400">Current Bid: $800</p>
+                      <p className="text-gray-500 dark:text-gray-400">Current Bid: 0.01 Avax</p>
                     </div>
                   </CardContent>
                   <CardFooter>
@@ -223,7 +223,7 @@ export default function Component() {
                   <CardContent>
                     <div className="space-y-1">
                       <h3 className="text-lg font-bold">Vintage Vinyl Records</h3>
-                      <p className="text-gray-500 dark:text-gray-400">Current Bid: $150</p>
+                      <p className="text-gray-500 dark:text-gray-400">Current Bid: 0.01 Avax</p>
                     </div>
                   </CardContent>
                   <CardFooter>
