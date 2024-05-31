@@ -79,13 +79,13 @@ const Page = (props: Props) => {
 
     const tokenId = Number(auctionNFT.identifier)
 
-    const nftContractAddress = getAddress(auctionNFT.contract)
+    const nftContractAddress = auctionNFT.contract
 
     const nftImageUrl = auctionNFT.image_url
 
-    const approval = await approve(nftContractAddress, tokenId)
+    // const approval = await approve(nftContractAddress, tokenId)
 
-    const res: any = await createAuction(startTime, endTime, startingBid, tokenId, nftContractAddress, nftImageUrl)
+    const res: any = await createAuction("1717193000", "1717197600", "5000", tokenId, nftContractAddress, nftImageUrl)
 
     console.log(startTime, endTime, startingBid, tokenId, nftContractAddress, nftImageUrl)
 

@@ -12,7 +12,7 @@ export const useCreateAuction = () =>{
     const { chainId } = useWeb3ModalAccount();
     const { walletProvider } = useWeb3ModalProvider();
 
-    return useCallback(async(startingTime: Number, endingTime: Number, startingBid: Number, nftTokenId: Number, nftContractAddress: string, imageURI: string)=>{
+    return useCallback(async(startingTime: number, endingTime: number, startingBid: number, nftTokenId: number, nftContractAddress: string, imageURI: string)=>{
 
         if(!isSupportedChain(chainId)) return console.error("Wrong network");
 
@@ -25,8 +25,9 @@ export const useCreateAuction = () =>{
         const loadingToast1 = toast.loading('Creating auction');
 
         try {
-
-            const transaction = await contract.createAuction(startingTime, endingTime, startingBid, nftTokenId, nftContractAddress, imageURI);
+            console.log(startingTime, endingTime, startingBid, nftTokenId, nftContractAddress, imageURI);
+            
+            const transaction = await contract.createAuction(1717193000, 1717197600, 5000, 1, "0xc39a5ecf4343b5df8b62bc8560f006be2ea010e7", "https://i.seadn.io/s/raw/files/8c33c698332c684effdc4de9a5acdd50.jpg?w=500&auto=format");
             
             const receipt = await transaction.wait();
 
