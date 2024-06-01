@@ -8,12 +8,12 @@ import {
 } from "@web3modal/ethers/react";
 
 
-export const usePlaceBid = (bid: Number, auctionId: Number) =>{
+export const usePlaceBid = () =>{
 
     const { chainId, address } = useWeb3ModalAccount();
     const { walletProvider } = useWeb3ModalProvider();
 
-    return useCallback(async()=>{
+    return useCallback(async(bid: Number, auctionId: Number)=>{
         
         if(!isSupportedChain(chainId)) return console.error("Wrong network");
 

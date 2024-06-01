@@ -75,17 +75,17 @@ const Page = (props: Props) => {
 
     const endTime = datetimeToEpochTime(data.endDate)
 
-    const startingBid = Number(ethers.parseEther(data.startingBid))
+    const startingBid = Number(data.startingBid)
 
     const tokenId = Number(auctionNFT.identifier)
 
-    const nftContractAddress = auctionNFT.contract
+    const nftContractAddress = getAddress(auctionNFT.contract)
 
     const nftImageUrl = auctionNFT.image_url
 
     // const approval = await approve(nftContractAddress, tokenId)
 
-    const res: any = await createAuction("1717193000", "1717197600", "5000", tokenId, nftContractAddress, nftImageUrl)
+    const res: any = await createAuction(startTime, endTime, startingBid, tokenId, nftContractAddress, nftImageUrl)
 
     console.log(startTime, endTime, startingBid, tokenId, nftContractAddress, nftImageUrl)
 

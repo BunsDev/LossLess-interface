@@ -25,9 +25,8 @@ export const useCreateAuction = () =>{
         const loadingToast1 = toast.loading('Creating auction');
 
         try {
-            console.log(startingTime, endingTime, startingBid, nftTokenId, nftContractAddress, imageURI);
-            
-            const transaction = await contract.createAuction(1717193000, 1717197600, 5000, 1, "0xc39a5ecf4343b5df8b62bc8560f006be2ea010e7", "https://i.seadn.io/s/raw/files/8c33c698332c684effdc4de9a5acdd50.jpg?w=500&auto=format");
+
+            const transaction = await contract.createAuction(startingTime, endingTime, startingBid, nftTokenId, nftContractAddress, imageURI);
             
             const receipt = await transaction.wait();
 
