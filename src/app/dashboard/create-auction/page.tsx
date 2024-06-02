@@ -11,7 +11,7 @@ import ModalLoader from '@/components/shared/ModalLoader';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useCreateAuction } from '@/hooks/useCreateAuction';
 import { datetimeToEpochTime } from "datetime-epoch-conversion";
-import { ethers, getAddress } from 'ethers';
+import { ethers } from 'ethers';
 import { useApproveAuctionContract } from '@/hooks/useApproveAuctionContract';
 
 
@@ -39,55 +39,63 @@ const Page = (props: Props) => {
   const [auctionNFT, setAuctionNFT] = useState<any>({});
   const [auctionForm, setAuctionForm] = useState<boolean>(false)
   const [startTimeValue, setStartTimeValue] = useState<string>()
+  const fetchUrl = process.env.NEXT_PUBLIC_OPENSEA_BASE_URL;  
 
-  console.log(startTimeValue)
-  const fetchUrl = process.env.NEXT_PUBLIC_OPENSEA_BASE_URL;
   useEffect(() => {
-    axios.get(`${fetchUrl}/account/${address}/nfts?limit=200`)
-      .then(response => {
+
+    axios.get(`${fetchUrl}/account/${address}/nfts?limit=200`).then(response => {
+
         setNftsArray(response.data.nfts);
+
         console.log(response.data.nfts)
+
       })
       .catch(error => {
+
         console.error(error);
+
       });
-  }, [address]);
+
+  }, [address, auctionForm]);
 
 
   const handleAuctionNFT = (contractAddress: string, id: string) => {
+    
     axios.get(`${fetchUrl}/contract/${contractAddress}/nfts/${id}`).then(response => {
+
       setAuctionNFT(response.data.nft);
+
       setAuctionForm(true)
+
     }).catch(error => {
+ 
       console.error(error);
+ 
     })
   }
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<Inputs>()
+  const { register, handleSubmit, formState: { errors }, } = useForm<Inputs>()
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
 
-    const startTime = datetimeToEpochTime(data.startDate)
+    const startTime = datetimeToEpochTime(data.startDate);
 
-    const endTime = datetimeToEpochTime(data.endDate)
+    const endTime = datetimeToEpochTime(data.endDate);
 
-    const startingBid = Number(data.startingBid)
+    const startingBid = ethers.parseEther(data.startingBid);
 
-    const tokenId = Number(auctionNFT.identifier)
+    const tokenId = Number(auctionNFT.identifier);
 
-    const nftContractAddress = getAddress(auctionNFT.contract)
+    const nftContractAddress = ethers.getAddress(auctionNFT.contract);
 
-    const nftImageUrl = auctionNFT.image_url
+    const nftImageUrl = auctionNFT.image_url;
 
-    // const approval = await approve(nftContractAddress, tokenId)
+    const approval = await approve(nftContractAddress, tokenId);
 
-    const res: any = await createAuction(startTime, endTime, startingBid, tokenId, nftContractAddress, nftImageUrl)
 
     console.log(startTime, endTime, startingBid, tokenId, nftContractAddress, nftImageUrl)
+
+    const res: any = await createAuction(startTime, endTime, startingBid, tokenId, nftContractAddress, nftImageUrl)
 
     setAuctionForm(false)
 

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { readOnlyProvider } from "../constants/providers";
 import { getAuthorizationContract } from "../constants/contracts";
 
-export const useGetUserRegistrationStatus = (address: `0x${string}` | undefined) => {
+export const useGetUserRegistrationStatus = (address: string | undefined) => {
     const [data, setData] = useState<any | null>({ loading: true, data: false })
 
     useEffect(() => {

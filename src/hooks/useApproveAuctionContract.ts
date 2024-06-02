@@ -13,7 +13,7 @@ export const useApproveAuctionContract = () =>{
     const { chainId } = useWeb3ModalAccount();
     const { walletProvider } = useWeb3ModalProvider();
 
-    return useCallback(async(contractAddress: string, tokenId: number)=>{
+    return useCallback(async(contractAddress: string, tokenId: any)=>{
 
         if(!isSupportedChain(chainId)) return console.error("Wrong network");
 

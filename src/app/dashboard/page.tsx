@@ -1,11 +1,20 @@
+"use client"
+
 import React from 'react'
 import { CardTitle, CardHeader, CardContent, Card } from "@/components/ui/card"
 import { TableHead, TableRow, TableHeader, TableCell, TableBody, Table } from "@/components/ui/table"
 import Link from 'next/link'
+import { useGetUserRegistrationStatus } from '@/hooks/useGetUserRegisterationStatus'
+import { useWeb3ModalAccount } from '@web3modal/ethers/react'
 
 type Props = {}
 
 const Page = (props: Props) => {
+  const {address} = useWeb3ModalAccount()
+  const isRegisterUser = useGetUserRegistrationStatus(address)
+  console.log(isRegisterUser)
+
+
   return (
     <>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
