@@ -13,6 +13,7 @@ import { useCreateAuction } from '@/hooks/useCreateAuction';
 import { datetimeToEpochTime } from "datetime-epoch-conversion";
 import { ethers } from 'ethers';
 import { useApproveAuctionContract } from '@/hooks/useApproveAuctionContract';
+import EmptyPage from '@/components/shared/NoNft';
 
 
 type Props = {}
@@ -39,17 +40,17 @@ const Page = (props: Props) => {
   const [auctionNFT, setAuctionNFT] = useState<any>({});
   const [auctionForm, setAuctionForm] = useState<boolean>(false)
   const [startTimeValue, setStartTimeValue] = useState<string>()
-  const fetchUrl = process.env.NEXT_PUBLIC_OPENSEA_BASE_URL;  
+  const fetchUrl = process.env.NEXT_PUBLIC_OPENSEA_BASE_URL;
 
   useEffect(() => {
 
     axios.get(`${fetchUrl}/account/${address}/nfts?limit=200`).then(response => {
 
-        setNftsArray(response.data.nfts);
+      setNftsArray(response.data.nfts);
 
-        console.log(response.data.nfts)
+      console.log(response.data.nfts)
 
-      })
+    })
       .catch(error => {
 
         console.error(error);
@@ -60,7 +61,7 @@ const Page = (props: Props) => {
 
 
   const handleAuctionNFT = (contractAddress: string, id: string) => {
-    
+
     axios.get(`${fetchUrl}/contract/${contractAddress}/nfts/${id}`).then(response => {
 
       setAuctionNFT(response.data.nft);
@@ -68,9 +69,9 @@ const Page = (props: Props) => {
       setAuctionForm(true)
 
     }).catch(error => {
- 
+
       console.error(error);
- 
+
     })
   }
 
@@ -108,35 +109,37 @@ const Page = (props: Props) => {
       <p className="max-w-[900px] text-[#C9E4CA] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
         Auction any of the NFT you own so users can place bids and buy from you
       </p>
-      <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 sm:grid-cols-2 md:gap-12 lg:grid-cols-3">
-        {
-          nftsArray.map((nft, index) => {
-            return (
-              <Card key={index} className='bg-[#C9E4CA]'>
-                <CardHeader>
-                  <img
-                    alt="Auction Item"
-                    className="mx-auto aspect-[4/3] overflow-hidden rounded-xl object-cover object-center sm:w-full"
-                    height="250"
-                    src={nft.image_url}
-                    width="400"
-                  />
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-1">
-                    <h3 className="text-lg font-bold">{nft.name}</h3>
-                    <p className="text-gray-500 dark:text-gray-400">{nft.description}</p>
-                  </div>
-                </CardContent>
-                <CardFooter>
-                  <Button size="sm" onClick={() => handleAuctionNFT(nft.contract, nft.identifier)}>Auction NFT</Button>
-                </CardFooter>
-              </Card>
-            )
-          })
-        }
+      {
+        nftsArray.length > 0 ?
+          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 sm:grid-cols-2 md:gap-12 lg:grid-cols-3">
+            {
+              nftsArray.map((nft, index) => {
+                return (
+                  <Card key={index} className='bg-[#C9E4CA]'>
+                    <CardHeader>
+                      <img
+                        alt="Auction Item"
+                        className="mx-auto aspect-[4/3] overflow-hidden rounded-xl object-cover object-center sm:w-full"
+                        height="250"
+                        src={nft.image_url}
+                        width="400"
+                      />
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-1">
+                        <h3 className="text-lg font-bold">{nft.name}</h3>
+                        <p className="text-gray-500 dark:text-gray-400">{nft.description}</p>
+                      </div>
+                    </CardContent>
+                    <CardFooter>
+                      <Button size="sm" onClick={() => handleAuctionNFT(nft.contract, nft.identifier)}>Auction NFT</Button>
+                    </CardFooter>
+                  </Card>
+                )
+              })
+            }
 
-      </div>
+          </div> : <EmptyPage />}
       {
         auctionForm && <ModalLoader>
           <form onSubmit={handleSubmit(onSubmit)} className="bg-[#C9E4CA]  p-6 flex flex-col gap-4 rounded-xl">
