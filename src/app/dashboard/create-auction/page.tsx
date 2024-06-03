@@ -91,12 +91,16 @@ const Page = (props: Props) => {
 
     const nftImageUrl = auctionNFT.image_url;
 
+    const name = auctionNFT.name
+
+    const description = auctionNFT.description
+
     const approval = await approve(nftContractAddress, tokenId);
 
 
     console.log(startTime, endTime, startingBid, tokenId, nftContractAddress, nftImageUrl)
 
-    const res: any = await createAuction(startTime, endTime, startingBid, tokenId, nftContractAddress, nftImageUrl)
+    const res: any = await createAuction(startTime, endTime, startingBid, tokenId, nftContractAddress, nftImageUrl, name, description)
 
     setAuctionForm(false)
 
@@ -139,7 +143,7 @@ const Page = (props: Props) => {
               })
             }
 
-          </div> : <EmptyPage />}
+          </div> : <EmptyPage wording={"You do not have any NFT to Auction"} />}
       {
         auctionForm && <ModalLoader>
           <form onSubmit={handleSubmit(onSubmit)} className="bg-[#C9E4CA]  p-6 flex flex-col gap-4 rounded-xl">
@@ -166,7 +170,7 @@ const Page = (props: Props) => {
 
               <Label htmlFor="mail" className='text-sm'>Starting Bid (Avax)</Label>
 
-              <Input type="number" step={0.01} defaultValue={""} placeholder="Enter bid in AVAX" {...register("startingBid")} className='bg-transparent border-black' />
+              <Input type="number" step={0.00000000000001} defaultValue={""} placeholder="Enter bid in AVAX" {...register("startingBid")} className='bg-transparent border-black' />
 
             </div>
 

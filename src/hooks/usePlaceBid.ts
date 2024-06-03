@@ -26,7 +26,7 @@ export const usePlaceBid = () =>{
         try {
 
             const transaction = await contract.bid( auctionId, {value: bid});
-            
+    
             const receipt = await transaction.wait();
             
             return receipt

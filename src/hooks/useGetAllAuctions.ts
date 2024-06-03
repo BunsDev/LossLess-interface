@@ -11,6 +11,10 @@ export const useGetAllAuction = () => {
         contract.getAllAuction().then((res) => {
             const auctions = res.map((auction: any) => (
                 {
+                    name: auction.name,
+
+                    description: auction.description,
+
                     auctionCreator: auction.auctionCreator,
 
                     nftContractAddress: auction.nftContractAddress,

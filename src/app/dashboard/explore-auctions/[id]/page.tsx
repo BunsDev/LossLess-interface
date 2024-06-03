@@ -1,23 +1,75 @@
+"use client"
+
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import Image from 'next/image'
+import { useParams } from 'next/navigation'
+import { useGetAuctionById } from '@/hooks/useGetAuctionById'
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { ethers } from 'ethers'
+import { usePlaceBid } from '@/hooks/usePlaceBid'
+import { useGetAuctionBidder } from '@/hooks/useGetAuctionBidder'
+import { useWeb3ModalAccount } from '@web3modal/ethers/react'
+import { useClaimAuctionWinnerNFT } from '@/hooks/useClaimAuctionWinnerNFT'
+import { useClaimAuctionParticipantNFT } from '@/hooks/useClaimAuctionParticipantNFT'
+
 
 type Props = {}
+type Inputs = {
+    bid: string;
+}
 
 const Page = (props: Props) => {
+
+    const { address } = useWeb3ModalAccount()
+
+    const params = useParams<{ id: string }>()
+
+    const [auctionDetails, setAuctionDetails] = useState<any>()
+
+    const [auctionParticipants, setAuctionParticpants] = useState<any>()
+
+    const getAuction = useGetAuctionById(Number(params.id))
+
+    const placeBid = usePlaceBid()
+
+    const getParticipants = useGetAuctionBidder(Number(params.id))
+
+
+
+    useEffect(() => {
+
+        setAuctionParticpants(getParticipants.data)
+
+        setAuctionDetails(getAuction.data)
+
+    }, [getAuction.data])
+
+    const { register, handleSubmit, formState: { errors }, } = useForm<Inputs>()
+
+    const onSubmit: SubmitHandler<Inputs> = async (data) => {
+
+        const placedBid = ethers.parseEther(data.bid)
+
+        console.log(placedBid)
+
+        const bid = placeBid(Number(placedBid), Number(params.id));
+
+    }
+
     return (
         <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6">
             <div className="grid gap-6 lg:grid-cols-[1fr_400px]">
                 <div className='flex flex-col gap-6'>
-                    <Image
+                    <img
                         alt="Auction Item"
                         className="w-full rounded-lg object-cover"
                         height={200}
-                        src="/images/auc1.jpeg"
+                        src={auctionDetails?.imageURI}
                         style={{
                             aspectRatio: "200/100",
                             objectFit: "cover",
@@ -30,12 +82,18 @@ const Page = (props: Props) => {
                                 <CardTitle>Place a Bid</CardTitle>
                             </CardHeader>
                             <CardContent>
-                                <form className="grid gap-4">
+                                <form onSubmit={handleSubmit(onSubmit)} className="grid gap-4">
                                     <div className="grid gap-2">
                                         <Label htmlFor="bid-amount">Bid Amount</Label>
-                                        <Input id="bid-amount" min="1250" 
-                                        placeholder="Enter your bid" step="50" type="number" />
-                                    </div>
+                                        <Input
+                                            id="bid-amount"
+                                            defaultValue={""}
+                                            {...register("bid")}
+                                            min={auctionDetails?.minValidBid ? Number(ethers.formatEther(auctionDetails.minValidBid)) : 0}
+                                            placeholder="Enter your bid"
+                                            step="0.001"
+                                            type="number"
+                                        />                                    </div>
                                     <Button type="submit">Place Bid</Button>
                                 </form>
                             </CardContent>
@@ -44,16 +102,27 @@ const Page = (props: Props) => {
                 </div>
                 <div className="grid gap-6 bg-[#030E19]/70 p-4">
                     <div>
-                        <h1 className="text-3xl font-bold text-[#C9E4CA]">Vintage Leather Armchair</h1>
+                        <h1 className="text-3xl font-bold text-[#C9E4CA]">{auctionDetails?.name}</h1>
                         <p className=" text-[#C9E4CA] text-lg">
-                            A beautifully crafted vintage leather armchair in excellent condition. This piece would be a stunning
-                            addition to any living room or study.
+                            {auctionDetails?.description}
                         </p>
+
+                        {
+                            auctionDetails?.ended && address === auctionDetails?.higtestBidder &&
+                            <div><Button onClick={()=>useClaimAuctionWinnerNFT(Number(params.id))}>
+                                Mint Winner NFT</Button></div>
+                        }
+                        {
+                            auctionDetails?.ended && address !== auctionDetails?.higtestBidder && auctionParticipants?.includes(address) &&
+                            <div><Button onClick={()=>useClaimAuctionParticipantNFT(Number(params.id))}>
+                                Mint Participant NFT</Button></div>
+                        }
+
                     </div>
                     <div className="grid gap-2">
                         <div className="flex items-center justify-between">
                             <span className=" text-[#C9E4CA]">Current Bid:</span>
-                            <span className="text-2xl font-bold text-[#C9E4CA]">$1,250</span>
+                            <span className="text-2xl font-bold text-[#C9E4CA]">{auctionDetails?.currentBid}</span>
                         </div>
                         <div className="flex items-center justify-between">
                             <span className="text-[#C9E4CA]">Time Remaining:</span>
@@ -62,30 +131,24 @@ const Page = (props: Props) => {
                     </div>
                     <div className="grid gap-4">
                         <div>
-                            <h2 className="text-lg font-bold text-[#C9E4CA]">Bid History</h2>
+                            <h2 className="text-lg font-bold text-[#C9E4CA]">Bidders</h2>
                             <Table>
                                 <TableHeader>
                                     <TableRow>
-                                        <TableHead className='text-[#C9E4CA]'>Bidder</TableHead>
-                                        <TableHead className='text-[#C9E4CA]'>Bid Amount</TableHead>
-                                        <TableHead className='text-[#C9E4CA]'>Time</TableHead>
+                                        <TableHead className='text-[#C9E4CA]'>Participants</TableHead>
+
                                     </TableRow>
                                 </TableHeader>
                                 <TableBody>
                                     <TableRow>
-                                        <TableCell className='text-[#C9E4CA]'>jsmith</TableCell>
-                                        <TableCell className='text-[#C9E4CA]'>$1,200</TableCell>
-                                        <TableCell className='text-[#C9E4CA]'>2 days ago</TableCell>
-                                    </TableRow>
-                                    <TableRow>
-                                        <TableCell className='text-[#C9E4CA]'>emiller</TableCell>
-                                        <TableCell className='text-[#C9E4CA]'>$1,150</TableCell>
-                                        <TableCell className='text-[#C9E4CA]'>3 days ago</TableCell>
-                                    </TableRow>
-                                    <TableRow>
-                                        <TableCell className='text-[#C9E4CA]'>kbrown</TableCell>
-                                        <TableCell className='text-[#C9E4CA]'>$1,100</TableCell>
-                                        <TableCell className='text-[#C9E4CA]'>4 days ago</TableCell>
+                                        {
+                                            auctionParticipants?.map((participant: any, index: number) => {
+                                                return (
+                                                    <TableCell key={index} className='text-[#C9E4CA]'>{participant}</TableCell>
+                                                )
+                                            })
+                                        }
+
                                     </TableRow>
                                 </TableBody>
                             </Table>

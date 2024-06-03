@@ -12,7 +12,7 @@ export const useCreateAuction = () =>{
     const { chainId } = useWeb3ModalAccount();
     const { walletProvider } = useWeb3ModalProvider();
 
-    return useCallback(async(startingTime: any, endingTime: any, startingBid: any, nftTokenId: any, nftContractAddress: string, imageURI: string)=>{
+    return useCallback(async(startingTime: any, endingTime: any, startingBid: any, nftTokenId: any, nftContractAddress: string, imageURI: string, name: string, description: string)=>{
 
         if(!isSupportedChain(chainId)) return console.error("Wrong network");
 
@@ -28,7 +28,7 @@ export const useCreateAuction = () =>{
 
             console.log(startingTime, endingTime, startingBid, nftTokenId, nftContractAddress, imageURI)
 
-            const transaction = await contract.createAuction(startingTime, endingTime, startingBid, nftTokenId, nftContractAddress, imageURI, {gasLimit: 2500000});
+            const transaction = await contract.createAuction(startingTime, endingTime, startingBid, nftTokenId, nftContractAddress, imageURI, name, description);
             
             const receipt = await transaction.wait();
 

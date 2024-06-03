@@ -37,5 +37,5 @@ export const useCancelAuction = (auctionId: Number) =>{
 
         }
         
-    }, [chainId, walletProvider]);
+    }, []);
 }

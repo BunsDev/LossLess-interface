@@ -10,6 +10,10 @@ export const useGetUserAuctionParticipated = (address:string) =>{
         contract.getUserAuctionParticipated(address).then((res) => {
             const auctions = res.map((auction: any) => (
                 {
+                    name: auction.name,
+
+                    description: auction.description,
+
                     auctionCreator: auction.auctionCreator,
 
                     nftContractAddress: auction.nftContractAddress,

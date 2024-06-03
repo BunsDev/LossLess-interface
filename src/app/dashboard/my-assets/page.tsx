@@ -17,39 +17,6 @@ const Page = (props: Props) => {
           View and manage all the assets you&apos;ve purchased at auctions.
         </p>
       </div>
-      <div className="flex items-center gap-4">
-        <div className="relative flex-1">
-          <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500 dark:text-gray-400" />
-          <Input
-            className="pl-10 pr-4 py-2 rounded-md bg-[#C9E4CA]"
-            placeholder="Search assets..."
-            type="search"
-          />
-        </div>
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button size="sm" variant="outline" className='bg-[#C9E4CA]'>
-              <FilterIcon className="w-4 h-4 mr-2" />
-              Filter
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" sideOffset={8}>
-            <DropdownMenuLabel>Sort by</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuRadioGroup value="date">
-              <DropdownMenuRadioItem value="date">Date</DropdownMenuRadioItem>
-              <DropdownMenuRadioItem value="price">Price</DropdownMenuRadioItem>
-              <DropdownMenuRadioItem value="category">Category</DropdownMenuRadioItem>
-            </DropdownMenuRadioGroup>
-            <DropdownMenuSeparator />
-            <DropdownMenuLabel>Direction</DropdownMenuLabel>
-            <DropdownMenuRadioGroup value="asc">
-              <DropdownMenuRadioItem value="asc">Ascending</DropdownMenuRadioItem>
-              <DropdownMenuRadioItem value="desc">Descending</DropdownMenuRadioItem>
-            </DropdownMenuRadioGroup>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         <div className="bg-white dark:bg-gray-950 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
           <Link className="block" href="/dashboard/my-assets/1">

@@ -209,6 +209,16 @@
                 "name": "_imageURI",
                 "type": "string",
                 "internalType": "string"
+            },
+            {
+                "name": "_name",
+                "type": "string",
+                "internalType": "string"
+            },
+            {
+                "name": "_description",
+                "type": "string",
+                "internalType": "string"
             }
         ],
         "outputs": [],
@@ -246,6 +256,16 @@
                         "name": "nftContractAddress",
                         "type": "address",
                         "internalType": "address"
+                    },
+                    {
+                        "name": "name",
+                        "type": "string",
+                        "internalType": "string"
+                    },
+                    {
+                        "name": "description",
+                        "type": "string",
+                        "internalType": "string"
                     },
                     {
                         "name": "hightestBidder",
@@ -347,6 +367,16 @@
                         "name": "nftContractAddress",
                         "type": "address",
                         "internalType": "address"
+                    },
+                    {
+                        "name": "name",
+                        "type": "string",
+                        "internalType": "string"
+                    },
+                    {
+                        "name": "description",
+                        "type": "string",
+                        "internalType": "string"
                     },
                     {
                         "name": "hightestBidder",
@@ -469,6 +499,16 @@
                         "internalType": "address"
                     },
                     {
+                        "name": "name",
+                        "type": "string",
+                        "internalType": "string"
+                    },
+                    {
+                        "name": "description",
+                        "type": "string",
+                        "internalType": "string"
+                    },
+                    {
                         "name": "hightestBidder",
                         "type": "address",
                         "internalType": "address"
@@ -570,6 +610,16 @@
                         "internalType": "address"
                     },
                     {
+                        "name": "name",
+                        "type": "string",
+                        "internalType": "string"
+                    },
+                    {
+                        "name": "description",
+                        "type": "string",
+                        "internalType": "string"
+                    },
+                    {
                         "name": "hightestBidder",
                         "type": "address",
                         "internalType": "address"
@@ -640,6 +690,25 @@
                         "internalType": "bool"
                     }
                 ]
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "getUserAuctionSales",
+        "inputs": [
+            {
+                "name": "_userAddress",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256",
+                "internalType": "uint256"
             }
         ],
         "stateMutability": "view"

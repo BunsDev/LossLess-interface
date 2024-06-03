@@ -1,18 +1,30 @@
 "use client"
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { CardTitle, CardHeader, CardContent, Card } from "@/components/ui/card"
 import { TableHead, TableRow, TableHeader, TableCell, TableBody, Table } from "@/components/ui/table"
 import Link from 'next/link'
 import { useGetUserRegistrationStatus } from '@/hooks/useGetUserRegisterationStatus'
 import { useWeb3ModalAccount } from '@web3modal/ethers/react'
+import { useGetAllAuction } from '@/hooks/useGetAllAuctions'
 
 type Props = {}
 
 const Page = (props: Props) => {
-  const {address} = useWeb3ModalAccount()
+  const { address } = useWeb3ModalAccount()
+  const [userRegistered, setUserRegistered] = useState<boolean>(false)
   const isRegisterUser = useGetUserRegistrationStatus(address)
-  console.log(isRegisterUser)
+
+  const [auctions, setAuctions] = useState<any>([])
+
+  const allAuctions = useGetAllAuction()
+
+  useEffect(() => {
+    setUserRegistered(isRegisterUser.data)
+
+    setAuctions(allAuctions.data)
+
+  }, [])
 
 
   return (
@@ -24,105 +36,86 @@ const Page = (props: Props) => {
             <CalendarIcon className="w-4 h-4 text-gray-500 dark:text-gray-400" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">12</div>
-            <p className="text-xs text-gray-500 dark:text-gray-400">in the next 7 days</p>
+            <div className="text-2xl font-bold">0</div>
+            <p className="text-xs text-gray-500 dark:text-gray-400">in the next days</p>
           </CardContent>
         </Card>
         <Card className='bg-[#C9E4CA]'>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium">Active Bids</CardTitle>
+            <CardTitle className="text-sm font-medium">Active Auctions</CardTitle>
             <GavelIcon className="w-4 h-4 text-gray-500 dark:text-gray-400" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">87</div>
+            <div className="text-2xl font-bold">0</div>
             <p className="text-xs text-gray-500 dark:text-gray-400">on your assets</p>
           </CardContent>
         </Card>
         <Card className='bg-[#C9E4CA]'>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium">Recent Sales</CardTitle>
+            <CardTitle className="text-sm font-medium">Auctions Participated</CardTitle>
             <DollarSignIcon className="w-4 h-4 text-gray-500 dark:text-gray-400" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">$125,345</div>
-            <p className="text-xs text-gray-500 dark:text-gray-400">in the last 30 days</p>
+            <div className="text-2xl font-bold">0</div>
+            <p className="text-xs text-gray-500 dark:text-gray-400">Total auction participated in </p>
           </CardContent>
         </Card>
         <Card className='bg-[#C9E4CA]'>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium">Highest Bid</CardTitle>
+            <CardTitle className="text-sm font-medium">Auctions won</CardTitle>
             <TrendingUpIcon className="w-4 h-4 text-gray-500 dark:text-gray-400" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">$12,500</div>
-            <p className="text-xs text-gray-500 dark:text-gray-400">on a rare painting</p>
+            <div className="text-2xl font-bold">0</div>
+            <p className="text-xs text-gray-500 dark:text-gray-400">Total auctions won</p>
+          </CardContent>
+        </Card>
+        <Card className='bg-[#C9E4CA]'>
+          <CardHeader className="flex flex-row items-center justify-between pb-2">
+            <CardTitle className="text-sm font-medium">Auctions Created</CardTitle>
+            <TrendingUpIcon className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">0</div>
+            <p className="text-xs text-gray-500 dark:text-gray-400">Total auction Created</p>
+          </CardContent>
+        </Card>
+        <Card className='bg-[#C9E4CA]'>
+          <CardHeader className="flex flex-row items-center justify-between pb-2">
+            <CardTitle className="text-sm font-medium">Auctions Sales</CardTitle>
+            <TrendingUpIcon className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">0</div>
+            <p className="text-xs text-gray-500 dark:text-gray-400">Total auction sales</p>
           </CardContent>
         </Card>
       </div>
       <div>
         <Card className='bg-[#C9E4CA]'>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Auction</TableHead>
-                <TableHead>Bids</TableHead>
-                <TableHead>Ends In</TableHead>
-                <TableHead className="text-right">Current Bid</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              <TableRow>
-                <TableCell className="font-medium">
-                  <Link className="hover:underline" href="/dashboard/explore-auctions/1">
-                    Vintage Typewriter
-                  </Link>
-                </TableCell>
-                <TableCell>42</TableCell>
-                <TableCell>2 days</TableCell>
-                <TableCell className="text-right">$850</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell className="font-medium">
-                  <Link className="hover:underline" href="/dashboard/explore-auctions/1">
-                    Antique Pocket Watch
-                  </Link>
-                </TableCell>
-                <TableCell>19</TableCell>
-                <TableCell>5 days</TableCell>
-                <TableCell className="text-right">$1,200</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell className="font-medium">
-                  <Link className="hover:underline" href="/dashboard/explore-auctions/1">
-                    Rare Comic Book
-                  </Link>
-                </TableCell>
-                <TableCell>68</TableCell>
-                <TableCell>1 week</TableCell>
-                <TableCell className="text-right">$3,500</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell className="font-medium">
-                  <Link className="hover:underline" href="/dashboard/explore-auctions/1">
-                    Classic Car
-                  </Link>
-                </TableCell>
-                <TableCell>24</TableCell>
-                <TableCell>10 days</TableCell>
-                <TableCell className="text-right">$45,000</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell className="font-medium">
-                  <Link className="hover:underline" href="/dashboard/explore-auctions/1">
-                    Vintage Vinyl Records
-                  </Link>
-                </TableCell>
-                <TableCell>31</TableCell>
-                <TableCell>2 weeks</TableCell>
-                <TableCell className="text-right">$750</TableCell>
-              </TableRow>
-            </TableBody>
-          </Table>
+          {auctions?.length > 0 && auctions.map((auction: any, index: number) => {
+            return (<Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Auction name</TableHead>
+                  <TableHead>Starting Bid</TableHead>
+                  <TableHead className="text-right">Current Bid</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+
+                <TableRow key={auction.auctionId}>
+                  <TableCell className="font-medium">
+                    <Link href={`/dashboard/explore-auctions/${auction.auctionId}`} className="mt-4 text-sm hover:underline" >
+                      {auction.name}
+                    </Link>
+                  </TableCell>
+                  <TableCell>{auction.startingBid}</TableCell>
+                  <TableCell className="text-right">{auction.currentBid}</TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>)
+          })}
         </Card>
       </div>
     </>

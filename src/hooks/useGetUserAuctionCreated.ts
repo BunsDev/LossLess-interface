@@ -2,14 +2,18 @@ import { useState } from "react";
 import { readOnlyProvider } from "../constants/providers";
 import { getAuctionContract } from "../constants/contracts";
 
-export const useGetUserAuctionCreated = (address:string) =>{
-    const [data, setData] = useState<{ loading: boolean, data: any }>({loading: true, data:{}});
+export const useGetUserAuctionCreated = (address: string) => {
+    const [data, setData] = useState<{ loading: boolean, data: any }>({ loading: true, data: {} });
 
     (() => {
         const contract = getAuctionContract(readOnlyProvider)
         contract.getUserAuctionCreated(address).then((res) => {
             const auctions = res.map((auction: any) => (
                 {
+                    name: auction.name,
+
+                    description: auction.description,
+                    
                     auctionCreator: auction.auctionCreator,
 
                     nftContractAddress: auction.nftContractAddress,

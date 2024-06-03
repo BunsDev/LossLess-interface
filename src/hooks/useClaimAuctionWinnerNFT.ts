@@ -8,7 +8,7 @@ import {
 } from "@web3modal/ethers/react";
 
 
-export const useClaimAuctionWinnerNFT = (bid: Number, auctionId: Number) =>{
+export const useClaimAuctionWinnerNFT = (auctionId: Number) =>{
 
     const { chainId, address } = useWeb3ModalAccount();
     const { walletProvider } = useWeb3ModalProvider();

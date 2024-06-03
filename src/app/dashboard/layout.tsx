@@ -45,13 +45,13 @@ export default function Component({ children }: { children: React.ReactNode }) {
                 <CompassIcon className="h-4 w-4" />
                 Explore Auctions
               </Link>
-              {/* <Link
+              <Link
                 className="flex items-center text-[#C9E4CA] gap-3 rounded-lg hover:bg-gray-100 px-3 py-2  transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-                href="/dashboard/my-auctions"
+                href="/dashboard/manage-auctions"
               >
                 <BriefcaseIcon className="h-4 w-4" />
-                My Auctions
-              </Link> */}
+                Manage auctions
+              </Link>
               <Link
                 className="flex items-center text-[#C9E4CA] gap-3 rounded-lg hover:bg-gray-100 px-3 py-2  transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
                 href="/dashboard/my-assets"
