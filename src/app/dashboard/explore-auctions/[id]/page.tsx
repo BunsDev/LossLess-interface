@@ -39,6 +39,10 @@ const Page = (props: Props) => {
 
     const getParticipants = useGetAuctionBidder(Number(params.id))
 
+    const claimWinner = useClaimAuctionWinnerNFT(Number(params.id))
+
+    const participantNFT = useClaimAuctionParticipantNFT(Number(params.id))
+
 
 
     useEffect(() => {
@@ -109,12 +113,12 @@ const Page = (props: Props) => {
 
                         {
                             auctionDetails?.ended && address === auctionDetails?.higtestBidder &&
-                            <div><Button onClick={()=>useClaimAuctionWinnerNFT(Number(params.id))}>
+                            <div><Button onClick={()=>claimWinner()}>
                                 Mint Winner NFT</Button></div>
                         }
                         {
                             auctionDetails?.ended && address !== auctionDetails?.higtestBidder && auctionParticipants?.includes(address) &&
-                            <div><Button onClick={()=>useClaimAuctionParticipantNFT(Number(params.id))}>
+                            <div><Button onClick={()=>participantNFT()}>
                                 Mint Participant NFT</Button></div>
                         }
 

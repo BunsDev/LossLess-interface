@@ -30,8 +30,10 @@ const Page = (props: Props) => {
 
   }, [allAuctions.data])
 
+  const cancel = useCancelAuction(auctionId);
+
   const handleClick = async() =>{
-    useCancelAuction(auctionId);
+    cancel()
     setCancelAuctionForm(true);
   }
 

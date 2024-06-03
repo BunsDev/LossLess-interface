@@ -94,7 +94,7 @@ const Page = (props: Props) => {
       <div>
         <Card className='bg-[#C9E4CA]'>
           {auctions?.length > 0 && auctions.map((auction: any, index: number) => {
-            return (<Table>
+            return (<Table key={auction.auctionId}>
               <TableHeader>
                 <TableRow>
                   <TableHead>Auction name</TableHead>
